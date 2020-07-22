@@ -1,0 +1,152 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-07-22T13:23:03.283Z",
+        "before": [
+          {
+            "result": {
+              "duration": 7628000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.hrms.steps.Hooks.start()"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Last Name validation against DB",
+        "description": "",
+        "id": "last-name-validation-against-db;last-name-validation-against-db",
+        "after": [
+          {
+            "result": {
+              "duration": 585000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.hrms.steps.Hooks.end()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2546000000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "user is logged with valid admin credentials",
+            "match": {
+              "location": "com.hrms.steps.LoginSteps.user_is_logged_with_valid_admin_credentials()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4800000000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user navigate to employee list page",
+            "match": {
+              "location": "com.hrms.steps.EmployeeSearchSteps.user_navigate_to_employee_list_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 117000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user enters valid employee id \"14688\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"14688\"",
+                  "offset": 30
+                }
+              ],
+              "location": "com.hrms.steps.EmployeeSearchSteps.user_enters_valid_employee_id(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1006000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "click on search button",
+            "match": {
+              "location": "com.hrms.steps.EmployeeSearchSteps.click_on_search_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 41000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "verify table is displayed",
+            "match": {
+              "location": "com.hrms.steps.EmployeeSearchSteps.verify_table_is_displayed()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 26000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "get last name from table",
+            "match": {
+              "location": "com.hrms.steps.EmployeeLastNameValidation.get_last_name_from_table()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1554000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "get last name from db",
+            "match": {
+              "location": "com.hrms.steps.DBSteps.get_last_from_db()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "validate last name from ui against db",
+            "match": {
+              "location": "com.hrms.steps.EmployeeLastNameValidation.validate_last_name_from_ui_against_db()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@dbTest1"
+          }
+        ]
+      }
+    ],
+    "name": "Last Name validation against DB",
+    "description": "",
+    "id": "last-name-validation-against-db",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/lastnameValidation.feature",
+    "tags": []
+  }
+]
