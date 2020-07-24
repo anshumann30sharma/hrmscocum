@@ -24,19 +24,18 @@ public class BaseClass {
 		ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);
 
 		switch (ConfigsReader.getProperty("browser").toLowerCase()) {
-
 		case "chrome":
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions co= new ChromeOptions();
-
-			String b = ConfigsReader.getProperty("headless");
-			if(b.equalsIgnoreCase("true")) {
+			String headless= ConfigsReader.getProperty("headless");	
+			if(headless.equalsIgnoreCase("true")) {
 				co.setHeadless(true);
 				driver = new ChromeDriver(co);
 			}else {
-				driver = new ChromeDriver();
+				driver = new ChromeDriver(co);
 			}
 			break;
+		
 		case "firefox":
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
@@ -44,7 +43,7 @@ public class BaseClass {
 		default:
 			throw new RuntimeException("Browser is not supported");
 		}
-
+	
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 
@@ -80,7 +79,7 @@ public class BaseClass {
 		default:
 			throw new RuntimeException("Browser is not supported");
 		}
-
+	
 		 driver.manage().window().fullscreen();
 		driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 		driver.get(ConfigsReader.getProperty("url"));
